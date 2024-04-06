@@ -1,4 +1,4 @@
-# COMP2611-Artificial Intelligence-Coursework#2 - Descision Trees
+
 
 import pandas as pd
 import numpy as np
@@ -9,15 +9,11 @@ from sklearn.metrics import recall_score
 from sklearn.tree import export_text
 import warnings
 import os
-
-# STUDENT NAME: Eschal Najmi    
-# STUDENT EMAIL:  sc22en@leeds.ac.uk
     
 def print_tree_structure(model, header_list):
     tree_rules = export_text(model, feature_names=header_list[:-1])
     print(tree_rules)
     
-# Task 1 [10 marks]
 def load_data(file_path, delimiter=',') -> tuple:
     """
     Load the data from the CSV file and give back the number of rows
@@ -41,7 +37,6 @@ def load_data(file_path, delimiter=',') -> tuple:
     data = data.to_numpy()
     return num_rows, data, header_list
 
-# Task 2[10 marks]
 def filter_data(data) -> np.ndarray:
     """
     Give back the data by removing the rows with missing values
@@ -55,7 +50,6 @@ def filter_data(data) -> np.ndarray:
 
     return filtered_data
 
-# Task 3 [10 marks]
 def statistics_data(data):
     """
     Calculate the coefficient of variation
@@ -75,7 +69,6 @@ def statistics_data(data):
 
     return coefficient_of_variation
 
-# Task 4 [10 marks]
 def split_data(data, test_size=0.3, random_state=1):
     """
     Split the dataset into training and testing 
@@ -91,7 +84,6 @@ def split_data(data, test_size=0.3, random_state=1):
 
     return x_train, x_test, y_train, y_test
 
-# Task 5 [10 marks]
 def train_decision_tree(x_train, y_train, ccp_alpha=0):
     """
     Train a decision tree model with the cost complexity parameter 
@@ -108,7 +100,6 @@ def train_decision_tree(x_train, y_train, ccp_alpha=0):
 
     return model
 
-# Task 6 [10 marks]
 def make_predictions(model, X_test):
     """
     Make predictions on the testing set
@@ -123,7 +114,6 @@ def make_predictions(model, X_test):
 
     return y_test_predicted
 
-# Task 7 [10 marks] 
 def evaluate_model(model, x, y):
     """
     Evaluate the model performance by taking test dataset and giving back the accuracy and recall
@@ -142,7 +132,6 @@ def evaluate_model(model, x, y):
 
     return accuracy, recall
 
-# Task 8 [10 marks]
 def optimal_ccp_alpha(x_train, y_train, x_test, y_test):
     """
     Gives the optimal value for cost complexity parameter
@@ -169,7 +158,6 @@ def optimal_ccp_alpha(x_train, y_train, x_test, y_test):
 
     return optimal_ccp_alpha
 
-# Task 9 [10 marks]
 def tree_depths(model):
     """
     Gives the depth of a decision tree that it takes as input.
@@ -183,7 +171,6 @@ def tree_depths(model):
     
     return depth
 
- # Task 10 [10 marks]
 def important_feature(x_train, y_train, header_list):
     """
     Trains a decision tree model and increases Cost Complexity Parameter until the depth reaches 1
@@ -206,7 +193,6 @@ def important_feature(x_train, y_train, header_list):
 
     return best_feature
 
-# Example usage (Template Main section):
 if __name__ == "__main__":
     # Load data
     file_path = "DT.csv"
